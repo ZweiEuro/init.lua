@@ -4,16 +4,23 @@ return {
     tag = "0.1.5",
 
     dependencies = {
-        "nvim-lua/plenary.nvim"
+        "nvim-lua/plenary.nvim",
+        { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
 
     config = function()
-        require('telescope').setup({})
+        require('telescope').setup({  extensions = {
+            ['ui-select'] = {
+                require('telescope.themes').get_dropdown(),
+            },
+        },})
+
+      pcall(require('telescope').load_extension, 'ui-select')
 
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {}) -- project files
         vim.keymap.set('n', '<C-p>', builtin.git_files, {}) -- all git files, respects git ignore
-        
+
         vim.keymap.set('n', '<leader>pws', function()
             local word = vim.fn.expand("<cword>")
             builtin.grep_string({ search = word })
@@ -29,6 +36,11 @@ return {
         end)
 
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-    end
+        extensions = {
+            ['ui-select'] = {
+                require('telescope.themes').get_dropdown(),
+            },
+        }
+        end
 }
 

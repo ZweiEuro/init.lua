@@ -1,4 +1,5 @@
-vim.g.mapleader = " "
+
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -6,9 +7,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.api.nvim_set_keymap("n", "<leader>tf", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
 
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "J", "mzJ`z") -- put line below cursor to end of this line while cursor stays
+vim.keymap.set("n", "<C-d>", "<C-d>zz") -- jump page down keep cursor in ne below up to end of thismiddle
+vim.keymap.set("n", "<C-u>", "<C-u>zz") -- jump page up keep cursor in middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "=ap", "ma=ap'a")

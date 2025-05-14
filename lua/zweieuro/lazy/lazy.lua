@@ -27,6 +27,7 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "zweieuro.lazy.plugins" },
+    
   },
 
 
