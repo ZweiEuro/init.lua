@@ -1,22 +1,23 @@
 
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "[p]roject [v]iew"})
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selectied lines down 1 level"})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selectied lines up 1 level"})
 
 vim.api.nvim_set_keymap("n", "<leader>tf", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
 
-vim.keymap.set("n", "J", "mzJ`z") -- put line below cursor to end of this line while cursor stays
-vim.keymap.set("n", "<C-d>", "<C-d>zz") -- jump page down keep cursor in ne below up to end of thismiddle
-vim.keymap.set("n", "<C-u>", "<C-u>zz") -- jump page up keep cursor in middle
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Append line below to current line"}) -- put line below cursor to end of this line while cursor stays
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "jump page down"}) -- jump page down keep cursor in ne below up to end of thismiddle
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "jump page up"}) -- jump page up keep cursor in middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "=ap", "ma=ap'a")
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
+
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste, but dump whats under cursor"})
 
 -- next greatest remap ever : asbjornHaland
 -- this remap would interact with the actual copy paste buffer of each file
